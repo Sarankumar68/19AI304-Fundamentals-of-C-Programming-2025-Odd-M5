@@ -1,407 +1,454 @@
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
-# IAPR-5- Module 5 - FoC
-## 9. Implementation of recursion.
-## 10. Implementation of programs using pointer arithmetic.
-# Ex.No:21
-  Implement a C program to demonstrate call by value and call by reference by swapping two integers using separate functions.
+# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
+# IAPR-6- Module 6 - FoC
+## 11. Implementation of the concept of pointer to function.
+## 12. Implementation of programs using structure and union.
+## 13. Implementation of programs for different storage classes.
+# Ex.No:26
+  Develop a C program using static storage class in function with parameter and without return to display the incremental float values as indicated in the following output.
+| Input | Output                                       |
+|-------|----------------------------------------------|
+| 1     | 101.25&nbsp;&nbsp;201.50&nbsp;&nbsp;301.75&nbsp;&nbsp;402.00&nbsp;&nbsp;502.75 |
 # Date : 
 # Aim:
- To implement a C program that illustrates the difference between call by value and call by reference by swapping two integer variables using two separate functions.
+To develop a C program using the static storage class in a function with a parameter and without a return value to display the required output.
 # Algorithm:
 ### Step 1:
   Start
 ### Step 2: 
   Include the standard input-output library: #include<stdio.h>.
 ### Step 3:
-  Declare two functions:
-  - `swapv(int, int)` for swapping using call by value  
-  - `swapr(int *, int *)` for swapping using call by reference
-### Step 4: 
-  In the `main()` function, declare two integer variables `a` and `b` and initialize them with values (e.g., 10 and 20).
-### Step 5: 
-  Print the values of `a` and `b` before calling `swapv()`.
-### Step 6: 
-  Call the function `swapv(a, b)` and print the values of `a` and `b` after the function call to show that call by value does not change the original values.
-### Step 7: 
-  Print the values of `a` and `b` before calling `swapr()`.
-### Step 8: 
-  Call the function `swapr(&a, &b)` using the addresses of `a` and `b`.
-### Step 9: 
-  Print the values of `a` and `b` after the `swapr()` function call to show that call by reference successfully swaps the original values.
-### Step 10: 
-  Inside `swapv(x, y)` function:
-  - **Step 10.1:** Swap the values of `x` and `y` using a temporary variable.  
-  - **Step 10.2:** Print the swapped values (formal parameters).
-### Step 11: 
-  Inside `swapr(*x, *y)` function:
-  - **Step 11.1:** Swap the values pointed to by `x` and `y`.  
-  - **Step 11.2:** Print the swapped values (affects actual parameters).
-### Step 12: 
+  a. Declare an integer variable `input` to store the user’s number.  
+  b. Inside the function `display(int n)`, declare a static float variable `base` and initialize it to 100.25.
+### Step 4:
+  Read an integer from the user and store it in `input`.
+### Step 5:
+  Call the function `display(input)` five times.
+### Step 6:
+  Inside the `display` function, for each call:  
+  a. Calculate the sum of `base` and `n`.  
+  b. Display the value.  
+  c. Increase the value of `base` by 100.25.
+### Step 7:
+  Repeat Step 6 for all function calls.
+### Step 8:
   Stop
 # Program:
 ```
 #include <stdio.h>
 
-// Step 3: Function for swapping using call by value
-void swapv(int x, int y) {
-    int temp;
-    temp = x;
-    x = y;
-    y = temp;
-    printf("Inside swapv (formal parameters swapped): a = %d, b = %d\n", x, y);
-}
+// Step 3b: Function with parameter and static variable
+void display(int n) {
+    static float base = 100.25;  // static variable retains its value across calls
+    float sum;
 
-// Step 3: Function for swapping using call by reference
-void swapr(int *x, int *y) {
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
-    printf("Inside swapr (actual parameters swapped): a = %d, b = %d\n", *x, *y);
+    // Step 6a: Calculate sum
+    sum = base + n;
+
+    // Step 6b: Display value
+    printf("%.2f\t", sum);
+
+    // Step 6c: Increment base
+    base += 100.25;
 }
 
 int main() {
-    int a = 10, b = 20;   // Step 4: Initialize variables
+    int input;
 
-    // Step 5: Print before swapv
-    printf("Before swapv: a = %d, b = %d\n", a, b);
+    // Step 4: Read integer from user
+    printf("Enter an integer: ");
+    scanf("%d", &input);
 
-    // Step 6: Call swapv
-    swapv(a, b);
-    printf("After swapv (no change in actual values): a = %d, b = %d\n\n", a, b);
+    // Step 5: Call display() five times
+    for (int i = 0; i < 5; i++) {
+        display(input);
+    }
 
-    // Step 7: Print before swapr
-    printf("Before swapr: a = %d, b = %d\n", a, b);
-
-    // Step 8: Call swapr
-    swapr(&a, &b);
-    printf("After swapr (actual values swapped): a = %d, b = %d\n", a, b);
-
+    printf("\n");
     return 0;
 }
 
+}
 ```
 # Output:
-<img width="1350" height="746" alt="image" src="https://github.com/user-attachments/assets/b31113cc-a8ec-4dd9-8127-d2d5aeca6e3a" />
+<img width="1348" height="752" alt="image" src="https://github.com/user-attachments/assets/b45cb2a3-34d5-4104-acbc-44bfc5dacf89" />
 
 # Result: 
-  Thus, the program was implemented and executed successfully, and the required output was obtained.
+Thus, the program was implemented and executed successfully, and the required output was obtained.
 
 
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
-# IAPR-5- Module 5 - FoC
-# Ex.No:22
-  Implement a C program to generate the Fibonacci series using a recursive function. The program should accept a positive integer n and display the first n terms of the Fibonacci sequence.
+# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
+# IAPR-6- Module 6 - FoC
+# Ex.No:27
+  Implement a C program to perform arithmetic operations (addition, subtraction, multiplication, division) on two integers using function pointers. The user should input two numbers and select the desired operation from a menu.
 # Date : 
 # Aim:
-  To implement a C program that uses a recursive function to generate and display the Fibonacci series for a given number of terms.
+  To implement a C program that uses function pointers to perform arithmetic operations (add, subtract, multiply, divide) on two integers based on user choice.
 # Algorithm:
 ### Step 1:
   Start
 ### Step 2: 
   Include the standard input-output library: #include<stdio.h>.
 ### Step 3:
-  Declare a recursive function `fibo(int x)` that returns the Fibonacci number at position `x`.  
+  Declare four functions to perform arithmetic operations:  
+  - `add(int a, int b)`  
+  - `subtract(int a, int b)`  
+  - `multiply(int a, int b)`  
+  - `divide(int a, int b)`
 ### Step 4:
-  In the `main()` function, declare variables `n` and `i`.  
+  Declare a function pointer `int (*operation)(int, int)` to point to any of the arithmetic functions.
 ### Step 5:
-  Prompt the user to enter a positive integer `n`.  
+  Input two integers from the user (`num1` and `num2`).
 ### Step 6:
-  Read the value of `n`.  
+  Display a menu for the user to choose an operation:  
+  - Add  
+  - Subtract  
+  - Multiply  
+  - Divide
 ### Step 7:
-  Display a message indicating that the Fibonacci series of `n` terms will be printed.  
+  Read the user’s choice.
 ### Step 8:
-  Use a `for` loop from `i = 0` to `i < n` to:  
-  - **Step 8.1:** Call the recursive function `fibo(i)`  
-  - **Step 8.2:** Print the returned Fibonacci value  
+  Use a switch statement to assign the function pointer `operation` to the appropriate function based on the user’s choice.  
+  - **Step 8.1:** If the choice is 4 (divide), check if the second number is zero. If yes, display an error and terminate.  
+  - **Step 8.2:** If the choice is invalid, display an error and terminate.
 ### Step 9:
- Define the recursive function `fibo(x)` as follows:  
- - **Step 9.1:** If `x == 0` or `x == 1`, return `x`.  
- - **Step 9.2:** Otherwise, return `fibo(x - 1) + fibo(x - 2)`.  
+  Call the function using the function pointer and store the result in a variable `result`.
+### Step 10:
+  Display the result.
+### Step 11:
+  Stop
+# Program:
+```
+#include <stdio.h>
+
+// Step 3: Arithmetic functions
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int divide(int a, int b) {
+    return a / b;  // integer division
+}
+
+int main() {
+    int num1, num2, choice, result;
+    int (*operation)(int, int);  // Step 4: Function pointer
+
+    // Step 5: Input two integers
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+
+    // Step 6: Display menu
+    printf("\nChoose an operation:\n");
+    printf("1. Add\n");
+    printf("2. Subtract\n");
+    printf("3. Multiply\n");
+    printf("4. Divide\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    // Step 8: Assign function pointer
+    switch (choice) {
+        case 1:
+            operation = add;
+            break;
+        case 2:
+            operation = subtract;
+            break;
+        case 3:
+            operation = multiply;
+            break;
+        case 4:
+            if (num2 == 0) {
+                printf("Error: Division by zero is not allowed.\n");
+                return 1; // terminate program
+            }
+            operation = divide;
+            break;
+        default:
+            printf("Invalid choice!\n");
+            return 1; // terminate program
+    }
+
+    // Step 9: Call function via pointer
+    result = operation(num1, num2);
+
+    // Step 10: Display result
+    printf("Result = %d\n", result);
+
+    return 0;
+}
+```
+# Output:
+<img width="1350" height="749" alt="image" src="https://github.com/user-attachments/assets/e4847575-b6dc-4f72-b5a1-9be9edcfa2d2" />
+
+# Result: 
+Thus, the program was implemented and executed successfully, and the required output was obtained.
+
+# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
+# IAPR-6- Module 6 - FoC
+# Ex.No:28
+  Develop a C program to store details of n employees (employee number, name, and salary) using structures, and display the employee(s) with the highest salary.
+# Date : 
+# Aim:
+  To develop and implement a C program that uses a structure to store employee details (employee number, name, and salary) and determine the employee(s) with the highest salary.
+# Algorithm:
+### Step 1:
+  Start
+### Step 2: 
+  Include the standard input-output library: #include<stdio.h>.
+### Step 3:
+  Define a structure `employee` with the following members:  
+  - `eno` (employee number)  
+  - `ename` (employee name)  
+  - `salary` (employee salary)
+### Step 4:
+  Declare an array of structures to store details of multiple employees.
+### Step 5:
+  Input the number of employees, `n`.
+### Step 6:
+  For each employee (`i = 0` to `n-1`), do the following:  
+  - **Step 6.1:** Input employee number.  
+  - **Step 6.2:** Input employee name (allow spaces).  
+  - **Step 6.3:** Input employee salary.  
+  - **Step 6.4 (Optional):** Print the entered details for verification.
+### Step 7:
+  Initialize a variable `high` with the salary of the first employee.
+### Step 8:
+  For each employee (`i = 1` to `n-1`), do the following:  
+  - **Step 8.1:** Compare employee salary with `high`.  
+  - **Step 8.2:** If the salary is greater than `high`, update `high` with this salary.
+### Step 9:
+  Print the details of employee(s) whose salary matches `high`:  
+  - **Step 9.1:** Loop through all employees.  
+  - **Step 9.2:** If employee salary equals `high`, print employee number, name, and salary.
 ### Step 10:
   Stop
 # Program:
 ```
 #include <stdio.h>
 
-// Step 3: Recursive function to return Fibonacci number at position x
-int fibo(int x) {
-    if (x == 0 || x == 1) {
-        return x;   // Base case
-    } else {
-        return fibo(x - 1) + fibo(x - 2);  // Recursive case
-    }
-}
+// Step 3: Define structure
+struct employee {
+    int eno;           // employee number
+    char ename[50];    // employee name
+    float salary;      // employee salary
+};
 
 int main() {
+    struct employee emp[50];  // Step 4: Array of structures
     int n, i;
+    float high;
 
-    // Step 5: Prompt user
-    printf("Enter the number of terms: ");
+    // Step 5: Input number of employees
+    printf("Enter the number of employees: ");
     scanf("%d", &n);
 
-    // Step 7: Display message
-    printf("Fibonacci series of %d terms:\n", n);
-
-    // Step 8: Generate series
+    // Step 6: Input employee details
     for (i = 0; i < n; i++) {
-        printf("%d ", fibo(i));
+        printf("\nEnter details of employee %d:\n", i + 1);
+        printf("Employee Number: ");
+        scanf("%d", &emp[i].eno);
+        printf("Employee Name: ");
+        scanf(" %[^\n]", emp[i].ename);  // allows spaces in name
+        printf("Employee Salary: ");
+        scanf("%f", &emp[i].salary);
     }
-    printf("\n");
+
+    // Step 7: Initialize high with first employee's salary
+    high = emp[0].salary;
+
+    // Step 8: Find highest salary
+    for (i = 1; i < n; i++) {
+        if (emp[i].salary > high) {
+            high = emp[i].salary;
+        }
+    }
+
+    // Step 9: Print employees with highest salary
+    printf("\nEmployee(s) with the highest salary:\n");
+    for (i = 0; i < n; i++) {
+        if (emp[i].salary == high) {
+            printf("Employee Number: %d\n", emp[i].eno);
+            printf("Employee Name  : %s\n", emp[i].ename);
+            printf("Employee Salary: %.2f\n\n", emp[i].salary);
+        }
+    }
 
     return 0;
 }
 ```
 # Output:
-<img width="1348" height="743" alt="image" src="https://github.com/user-attachments/assets/c630f120-5094-45d8-85e6-6da4d68e0e55" />
+<img width="1348" height="746" alt="image" src="https://github.com/user-attachments/assets/c4be6560-7e3b-48e5-b286-b5628b6d47ba" />
 
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
 
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
-# IAPR-5- Module 5 - FoC
-# Ex.No:23
-   Implement a C program to demonstrate recursion by printing a sequence of even or odd numbers from a given lower limit to an upper limit, with each recursive call progressing by 2.
+# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
+# IAPR-6- Module 6 - FoC
+# Ex.No:29
+  Create the C program to calculate the present age of a person by passing structure as a reference.
 # Date : 
 # Aim:
-  To implement a C program that uses a recursive function to print even or odd numbers in a specified range based on the starting value provided by the user.
+  To create a C program that uses a structure to store the current date and birth date, and to calculate the person’s present age in years, months, and days by passing the structure as a reference.
 # Algorithm:
 ### Step 1:
   Start
 ### Step 2: 
-  Include the standard input-output library: #include<stdio.h>. 
+  Include the standard input-output library: #include<stdio.h>.
 ### Step 3:
-  Declare a recursive function `printEvenOdd(int cur, int limit)` to print numbers from `cur` to `limit` with a step of 2.
+  Define a structure named `date` with members to store:  
+  - Current date (`c_date`, `c_month`, `c_year`)  
+  - Birth date (`b_date`, `b_month`, `b_year`)  
+  - Calculated age (`cal_date`, `cal_month`, `cal_year`)
 ### Step 4:
-  In the `main()` function, declare two integer variables: `lowerLimit` and `upperLimit`.
+  Initialize a structure variable with the current date and birth date values.
 ### Step 5:
-  Prompt the user to enter the lower limit of the range.
+  Pass the structure variable to a function `findAge()` by reference.
 ### Step 6:
-  Read and store the lower limit.
+  Inside `findAge()`:  
+  - a. Declare an integer array `month[]` to store the number of days in each month.  
+  - b. If the birth date is greater than the current date:  
+     - Add the number of days of the previous month to the current date.  
+     - Decrease the current month by 1.  
+  - c. If the birth month is greater than the current month:  
+     - Decrease the current year by 1.  
+     - Add 12 to the current month.  
+  - d. Calculate the age in days, months, and years by subtracting the corresponding birth values from the current values.
 ### Step 7:
-  Prompt the user to enter the upper limit of the range.
+  Return the structure pointer containing the calculated age.
 ### Step 8:
-  Read and store the upper limit.
+  Display the calculated age (years, months, and days) in the `main` function.
 ### Step 9:
-  Display a message indicating that the even/odd numbers in the given range will be printed.
-### Step 10:
-  Call the recursive function `printEvenOdd(lowerLimit, upperLimit)`.
-### Step 11:
-  Inside the function `printEvenOdd(cur, limit)`:
-  - **Step 11.1:** If `cur > limit`, terminate the recursion.  
-  - **Step 11.2:** If `cur == limit`, print the value without a trailing comma.  
-  - **Step 11.3:** Otherwise, print the current value followed by a comma.  
-  - **Step 11.4:** Recursively call `printEvenOdd(cur + 2, limit)` to print the next number.
-### Step 12:
   Stop
 # Program:
 ```
 #include <stdio.h>
 
-// Step 3: Recursive function
-void printEvenOdd(int cur, int limit) {
-    // Step 11.1: Termination condition
-    if (cur > limit) {
-        return;
+// Step 3: Define structure
+struct date {
+    int c_date, c_month, c_year;   // current date
+    int b_date, b_month, b_year;   // birth date
+    int cal_date, cal_month, cal_year; // calculated age
+};
+
+// Step 5: Function to calculate age
+void findAge(struct date *d) {
+    int month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    // Step 6b: Adjust days if birth date > current date
+    if (d->b_date > d->c_date) {
+        d->c_date += month[d->c_month - 2]; // add days of previous month
+        d->c_month -= 1;
     }
 
-    // Step 11.2 & 11.3: Print current value
-    if (cur == limit) {
-        printf("%d", cur);   // last number, no trailing comma
-    } else {
-        printf("%d, ", cur);
+    // Step 6c: Adjust months if birth month > current month
+    if (d->b_month > d->c_month) {
+        d->c_year -= 1;
+        d->c_month += 12;
     }
 
-    // Step 11.4: Recursive call with step of 2
-    printEvenOdd(cur + 2, limit);
+    // Step 6d: Calculate age
+    d->cal_date = d->c_date - d->b_date;
+    d->cal_month = d->c_month - d->b_month;
+    d->cal_year = d->c_year - d->b_year;
 }
 
 int main() {
-    int lowerLimit, upperLimit;
+    struct date d;
 
-    // Step 5: Prompt user
-    printf("Enter the lower limit: ");
-    scanf("%d", &lowerLimit);
+    // Step 4: Input current date and birth date
+    printf("Enter current date (DD MM YYYY): ");
+    scanf("%d %d %d", &d.c_date, &d.c_month, &d.c_year);
 
-    // Step 7: Prompt user
-    printf("Enter the upper limit: ");
-    scanf("%d", &upperLimit);
+    printf("Enter birth date (DD MM YYYY): ");
+    scanf("%d %d %d", &d.b_date, &d.b_month, &d.b_year);
 
-    // Step 9: Display message
-    if (lowerLimit % 2 == 0) {
-        printf("Even numbers in the range %d to %d:\n", lowerLimit, upperLimit);
-    } else {
-        printf("Odd numbers in the range %d to %d:\n", lowerLimit, upperLimit);
-    }
+    // Step 5: Call function by reference
+    findAge(&d);
 
-    // Step 10: Call recursive function
-    printEvenOdd(lowerLimit, upperLimit);
-
-    printf("\n");
-    return 0;
-}
-
-```
-# Output:
-<img width="1343" height="745" alt="image" src="https://github.com/user-attachments/assets/156249ae-edc8-4efc-a9d3-c44a870aa610" />
-
-# Result: 
-Thus, the program was implemented and executed successfully, and the required output was obtained.
-
-
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
-# IAPR-5- Module 5 - FoC
-# Ex.No:24
-   Implement a C program that dynamically allocates memory using calloc(), accepts integer inputs from the user, computes their sum, and prints the sum.
-# Date : 
-# Aim:
-  To implement a C program that dynamically allocates memory for an array of integers using calloc(), accepts elements from the user, computes their sum, and displays the sum.
-# Algorithm:
-### Step 1:
-  Start
-### Step 2: 
-  Include the standard input-output library: #include<stdio.h>. 
-### Step 3:
-  a. Declare a pointer `ptr` to `int`.  
-  b. Declare integers `n`, `i`, and `sum` (initialize `sum = 0`).
-### Step 4:
-  Read the integer `n` from the user (the number of integers to be stored).
-### Step 5:
-  Use the `calloc()` function to allocate memory for `n` integers:  
-  `ptr = calloc(n, sizeof(int))`
-### Step 6:
-  If `ptr` is not `NULL`, continue to the next step; otherwise, memory allocation failed (the program exits).
-### Step 7:
-  For each `i` from `0` to `n - 1`:  
-  a. Read an integer from the user.  
-  b. Store it at memory location `ptr + i`.
-### Step 8:
-  For each `i` from `0` to `n - 1`:  
-  a. Access the value stored at `ptr + i`.  
-  b. Add it to `sum`.
-### Step 9:
-  Print the value of `sum`.
-### Step 10:
-  Call `free(ptr);` to release the memory allocated by `calloc()`.
-### Step 11:
-  Stop
-# Program:
-```
-#include <stdio.h>
-#include <stdlib.h>   // for calloc() and free()
-
-int main() {
-    int *ptr;        // Step 3a: pointer to int
-    int n, i, sum = 0; // Step 3b: variables
-
-    // Step 4: Read number of integers
-    printf("Enter the number of integers: ");
-    scanf("%d", &n);
-
-    // Step 5: Allocate memory using calloc
-    ptr = (int *)calloc(n, sizeof(int));
-
-    // Step 6: Check if allocation succeeded
-    if (ptr == NULL) {
-        printf("Memory allocation failed!\n");
-        return 1; // exit program
-    }
-
-    // Step 7: Accept elements from user
-    printf("Enter %d integers:\n", n);
-    for (i = 0; i < n; i++) {
-        scanf("%d", (ptr + i));
-    }
-
-    // Step 8: Compute sum
-    for (i = 0; i < n; i++) {
-        sum += *(ptr + i);
-    }
-
-    // Step 9: Display sum
-    printf("Sum of the entered integers = %d\n", sum);
-
-    // Step 10: Free allocated memory
-    free(ptr);
+    // Step 8: Display calculated age
+    printf("\nPresent Age: %d years %d months %d days\n", d.cal_year, d.cal_month, d.cal_date);
 
     return 0;
 }
 ```
 # Output:
-<img width="1353" height="742" alt="image" src="https://github.com/user-attachments/assets/891bb0d6-bfff-476a-be8c-56dfd2413867" />
+<img width="1354" height="747" alt="image" src="https://github.com/user-attachments/assets/c7313621-0c05-4bce-961b-5a9b5c0ae94b" />
 
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
 
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
-# IAPR-5- Module 5 - FoC
-# Ex.No:25
-   Implement a C program that reads a set of integers into an array and displays the array elements using a user-defined function.
+# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M6
+# IAPR-6- Module 6 - FoC
+# Ex.No:30
+  Build a C program to demonstrate the use of a pointer to a union. Store an integer value in a union, access it using a union pointer, and display it as both an integer and a character.
 # Date : 
 # Aim:
-  To implement a C program that reads integers into an array and displays the elements using a user-defined function.
+  To build a program in C that uses a pointer to a union to store an integer value and display it in both integer and character format.
 # Algorithm:
 ### Step 1:
   Start
 ### Step 2: 
-  Include the standard input-output library: #include<stdio.h>. 
+  Include the standard input-output library: #include<stdio.h>.
 ### Step 3:
-  Declare the function prototype: `void displayArray(int *arr, int size);`
+  Define a union `abc` with the following members:  
+  - `int a`  
+  - `char b`
 ### Step 4:
-  In the `main()` function, declare an integer array of size 5 and a loop variable.
+  Declare a union variable `var` of type `abc`.
 ### Step 5:
-  Prompt the user to enter the required number of integers.
+  Declare a pointer `ptr` of type `union abc*`.
 ### Step 6:
-  Read the integers from the user and store them in the array using a loop.
+  Assign the address of `var` to `ptr`.
 ### Step 7:
-  Call the `displayArray` function, passing the array and its size as arguments.
+  Store an integer value (e.g., 90) in `var.a`.
 ### Step 8:
-  Define the function `displayArray(int *arr, int size)` to print the array elements:  
-  - Loop through the array using either pointer arithmetic (`*(arr + i)`) or array indexing (`arr[i]`).  
-  - Print each element.
+  Access and print the value of `a` using the pointer `ptr` in integer format.
 ### Step 9:
-  Return to the `main()` function after displaying the array.
+  Access and print the same value using the pointer `ptr` in character format.
 ### Step 10:
   Stop
 # Program:
 ```
 #include <stdio.h>
 
-// Step 3: Function prototype
-void displayArray(int *arr, int size);
+// Step 3: Define union
+union abc {
+    int a;
+    char b;
+};
 
 int main() {
-    int arr[5];   // Step 4: Declare array of size 5
-    int i;
+    union abc var;          // Step 4: Declare union variable
+    union abc *ptr;         // Step 5: Declare pointer to union
 
-    // Step 5: Prompt user
-    printf("Enter 5 integers:\n");
+    ptr = &var;             // Step 6: Assign address of var to ptr
 
-    // Step 6: Read integers into array
-    for (i = 0; i < 5; i++) {
-        scanf("%d", &arr[i]);
-    }
+    var.a = 90;             // Step 7: Store integer value in union
 
-    // Step 7: Call displayArray function
-    printf("The array elements are:\n");
-    displayArray(arr, 5);
+    // Step 8: Access integer value using pointer
+    printf("Integer format: %d\n", ptr->a);
+
+    // Step 9: Access same value in character format
+    printf("Character format: %c\n", ptr->b);
 
     return 0;
 }
-
-// Step 8: Function definition
-void displayArray(int *arr, int size) {
-    int i;
-    for (i = 0; i < size; i++) {
-        // Using pointer arithmetic
-        printf("%d ", *(arr + i));
-    }
-    printf("\n");
-}
 ```
 # Output:
-<img width="1355" height="753" alt="image" src="https://github.com/user-attachments/assets/ef7ed44b-06b6-43df-a42a-115ef758886c" />
+<img width="1348" height="746" alt="image" src="https://github.com/user-attachments/assets/49f19f75-978a-48b0-aa5c-1538044ae3ac" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
+
+
